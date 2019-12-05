@@ -1,0 +1,17 @@
+{
+    "name": "Weather",
+    "short_name": "Weather",
+    "icons": [{
+        "src": "/imges/bg.png",
+        "sizes": "128x128",
+        "type": "image/png"
+    }, {
+        "src": "/imges/logo.png",
+        "sizes": "128x128",
+        "type": "image/png"
+    }],
+    "start_url": "/ar",
+    "display": "standalone",
+    "background_color": "#3E4EB8",
+    "theme_color": "#fff"
+}

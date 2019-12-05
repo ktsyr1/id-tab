@@ -1,0 +1,58 @@
+<%- include('../themes/header.ejs') -%>
+    <%- include('../themes/nav.ejs') -%>
+
+        <div class="container">
+            <div class="row  sh b-r" style="margin: 20px  0 0 0 ;">
+                <div class=" body-c">
+                    <img src="/imges/bg.png" class="card-img-top clip-1 b-r" />
+
+                    <h1>
+                        <%= center.name %>
+                    </h1>
+                    <table class="table table-striped">
+
+                        <tbody>
+                            <!-- <tr>
+                                <td>الجنسية</td>
+                                <td>سوري / لبناني /فلسطيني</td>
+                            </tr> -->
+                            <tr>
+                                <td>الهاتف</td>
+                                <td>
+                                    <a class="p2" href="tel:00961<%= center.phone %>">
+                                        <%= center.phone %>
+                                    </a>
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                                <td>دعم الامم المتحدة</td>
+                                <td>لا يوجد</td>
+                            </tr> -->
+                            <tr>
+                                <td>المدينة</td>
+                                <td>
+                                    <%= center.address %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <article class="body-c">
+
+
+
+                    <p>العنوان على الخريطة</p>
+
+                    <iframe class="b-r" src="<%= center.description %>" width="100%" height="200px" style="border:0" allowfullscreen="allowfullscreen"></iframe>
+                    <a href="" class="btn btn-primary">edit</a>
+                    <a href="" class="btn btn-danger">Delete</a>
+                    <p>
+                        <%= center.date.toLocaleDateString('ar-EG') %>
+                    </p>
+                </article>
+
+
+            </div>
+        </div>
+        <%- include('../themes/footer.ejs') -%>
