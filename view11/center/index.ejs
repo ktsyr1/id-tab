@@ -1,13 +1,13 @@
 <%- include('../themes/header.ejs') -%>
-    <%- include('../themes/nav.ejs') -%>
+<%- include('../themes/nav.ejs') -%>
         <div class="container">
             <% chunk.forEach((center) => {%>
                 <div class="rows ">
                     <% center.forEach((center)=> {%>
                         <div class="col-sm-6 col-md-4" style="display: contents;">
-                            <a href="<%=  '/ar/' + center.id %>" class="btn b-r " style="padding: 10px;">
+                            <a href="<%=  '/' + center.id %>" class="btn b-r " style="padding: 10px;">
                                 <div class=" col-lg-4 b-r" style="padding: 0;">
-                                    <div class="card b-r" style="width: 18rem;">
+                                    <div class="card b-r">
                                         <img src="/imges/bg.png" class="card-img-top clip-1 b-r" />
                                         <div class="card-body ThreeSteps">
                                             <h5 class="card-title">
@@ -25,4 +25,4 @@
                         <%}) %>
                 </div>
         </div>
-        <%- include('../themes/footer.ejs') -%>
+<%- include('../themes/footer.ejs') -%>

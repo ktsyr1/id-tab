@@ -4,8 +4,16 @@
 
             <div class="rows " style="text-align: right;">
                 <br>
-                <form action="/ar/add" method="post">
+                <h3>اظافة مركز</h3><hr>
+                <% if (errors) {%>
+                     <% errors.forEach((err)=> {%> 
+                    <div class="alert alert-danger">
+                        <%= err.msg %>
+                    </div>
+                <% })%> <% }%> 
+                <form action="/add" method="post">
                     <div class="form-row">
+                       
                         <div class="form-group col-md-6">
                             <label for="name">اسم المركز</label>
                             <input type="text" name="name" class="form-control" id="name">
@@ -23,18 +31,18 @@
                         <label for="jurisdiction">الاختصاص</label>
                         <input type="text" name="jurisdiction" class="form-control" id="jurisdiction" placeholder="Apartment, studio, or floor">
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="date "> التاريخ</label>
-                        <input type="date" name="date" class="form-control" id="date">
+                    <div class="form-group ">
+                        <label for="description">الخريطة</label> 
+                        <input type="url" name="description" class="form-control" id="description">
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="description">ملاحظة</label>
-                        <hr>
-                        <textarea name="description" id="description" cols="30 " rows="10 "></textarea>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="date "> التاريخ</label>
+                            <input type="date" name="date" class="form-control" id="date">
+                        </div> 
+                        <div class="form-group col-md-6">
+                            <button type="submit" class="btn btn-primary" style="margin: 32px 0 0 0;float: left;">اظافة</button></div>
                     </div>
-
-                    <hr>
-                    <button type="submit " class="btn btn-primary ">اظافة</button>
                 </form>
             </div>
         </div>

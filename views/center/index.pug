@@ -1,0 +1,13 @@
+extends ../themes/header
+block content
+    .container 
+        .rows  
+        each  
+            .col-sm-6.col-md-4(style="display: contents;")
+                a(href='/' + center.id  class="btn b-r " style="padding: 10px;")
+                    .col-lg-4.b-r(style="padding: 0;")
+                        .card.b-r 
+                            img(src="/imges/bg.png" class="card-img-top clip-1 b-r")
+                            .card-body.ThreeSteps 
+                                h5.card-title=   center.name  
+                                h6.address.b-r=   center.address   

@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/idTab', {
+const uri = 'mongodb://localhost:27017/idTab';
+
+mongoose.connect(uri, {
+
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true

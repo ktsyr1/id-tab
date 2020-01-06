@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Center = require("../models/center");
+
+const { check, validationResult } = require('express-validator')
 router.get("/", (req, res) => {
   Center.find({}, (err, centers) => {
     let chunk = [];
@@ -8,35 +10,39 @@ router.get("/", (req, res) => {
     for (let i = 0; i < centers.length; i += chunkSize) {
       chunk.push(centers.slice(i, chunkSize + i));
     }
-    res.render("../view/center/index.ejs", {
+    res.render("../views/center/index", {
       chunk: chunk
     });
   });
 });
 router.get("/about", (req, res) => {
-  res.render("../view/themes/about.ejs");
+  res.render("../views/themes/about");
 });
 router.get("/contact", (req, res) => {
-  res.render("../view/themes/contact.ejs");
+  res.render("../views/themes/contact");
 });
 router.get("/add", (req, res) => {
-  res.render("../view/center/add.ejs");
+  res.render("../views/center/add",{
+    errors:false
+  });
 });
-router.post("/add"
-// ,[
-//   chunk('name').isLength({min:5}).withMessage('Title should be more than 5 char'),,
-//   chunk('phone').isLength({min:5}).withMessage('Title should be more than 5 char'),,
-//   chunk('address').isLength({min:5}).withMessage('Title should be more than 5 char'),,
-//   chunk('jurisdiction').isLength({min:5}).withMessage('Title should be more than 5 char'),,
-//   chunk('description').isLength({min:5}).withMessage('Title should be more than 5 char'),,
-//   chunk('date').isLength({min:5}).withMessage('Title should be more than 5 char'),,
-// ]
-, (req, res) => {
-  // const err = validationResult(req);
-  // if (err.isEmpty()) {
-  //   return res.status(422).json({ err: err.array() });
-  // }
-  let newCenter = new Center({
+router.post("/add",
+[
+  check('name').isLength({min:5}).withMessage('Title should be more than 5 char'),
+  check('phone').isLength({min:7}).withMessage('Title should be more than 5 char'),
+  check('address').isLength({min:5}).withMessage('Title should be more than 5 char'),
+  check('jurisdiction').isLength({min:2}).withMessage('Title should be more than 5 char'),
+  check('description').isLength({min:5}).withMessage('Title should be more than 5 char'),
+  check('date').isLength({min:5}).withMessage('Title should be more than 5 char')
+],
+ (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.redirect('/',{
+      errors: errors.array()
+    })
+   }else{ 
+      let newCenter = new Center({
     name: req.body.name,
     phone: req.body.phone,
     address: req.body.address,
@@ -48,20 +54,20 @@ router.post("/add"
   newCenter.save((err)=>{
       if (!err){
           console.log('add center'); 
-        res.redirect("/ar");
+        res.redirect("/");
       }
-  })
+  })}
+
   
 });
 router.get("/:id", (req, res) => {
   Center.findOne({ _id: req.params.id }, (err, center) => {
     if (!err) {
-      res.render("../view/center/show.ejs", {
+      res.render("../views/center/show", {
         center: center
       });
       console.log(err);
     }
   });
-});
-
+}); 
 module.exports = router;

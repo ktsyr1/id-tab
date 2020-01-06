@@ -1,0 +1,31 @@
+extends ../themes/header 
+    extends ../themes/nav 
+        .container  
+            .rows( style="text-align: right;") 
+                br 
+                h3 اظافة مركز 
+                hr  
+                form( action="/add" method="post" )
+                    .form-row 
+                        .form-group.col-md-6 
+                            label(for="name") اسم المركز 
+                            input.form-control( type="text" name="name" id="name" ) 
+                        .form-group.col-md-6 
+                            label( for="phone") هاتف المركز 
+                            input.form-control( type="number"  name="phone" id="phone") 
+                    .form-group 
+                        label( for="address") العنوان   
+                        input.form-control(type="text" name="address"  id="address" placeholder="1234 Main St" )
+                    .form-group 
+                        label( for="jurisdiction") الاختصاص 
+                        input.form-control( type="text" name="jurisdiction" id="jurisdiction" placeholder="Apartment, studio, or floor" )
+                    .form-group  
+                        label( for="description") الخريطة 
+                        input( type="url" name="description" class="form-control" id="description" )
+                    .form-row 
+                        .form-group.col-md-6 
+                            label( for="date ")  التاريخ 
+                            input.form-control( type="date" name="date" class="" id="date" ) 
+                        .form-group.col-md-6 
+                            button.btn.btn-primary( type="submit" class="" style="margin: 32px 0 0 0;float: left;") اظافة  
+        extends ../themes/footer 
