@@ -1,0 +1,33 @@
+extends ../layout/header 
+block content 
+    form.login(action="signup", method="post") 
+        h4 تسجيل
+        .formn
+            label( for="email")
+            input( type="email"  name="email" placeholder="ايميل")
+        .formn
+            label( for="password") 
+            input( 
+                type="password" 
+                 name="password"
+                  placeholder="كلمة السر")
+        .formn
+            label( for="rePassword") 
+            input( type="password"  name="rePassword" placeholder="اعادة كلمة السر ")
+        .formn
+            button.btn.btns.btn-primary(type="submit") تسجيل
+        .formn(style="display: flex; margin: 0 auto")
+            p اذ كنت تملك حساب يمكنت
+            a(href="/auto/login" style="margin: 10px 0 0  0") تسجيل الدخول
+        .sb
+            p او تسجيل عبر
+            .formn(style="display: flex;")
+                button.btn.btn1.btn-primary( type="submit" )
+                    img(src="/imges/google.png", alt="")  
+                    span  جوجل
+
+                button.btn.btns.btn-primary( type="submit" )
+                    img(src="/imges/facebook.png", alt="")  
+                    span  فيسبوك
+
+//- no bootstrap

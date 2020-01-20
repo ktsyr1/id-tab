@@ -1,0 +1,20 @@
+extends ../layout/header 
+block content 
+    form.login(action="", method="post") 
+        h4 تسجيل دخول
+        .formn
+            label( for="inputEmail")
+            input( type="email"  id="inputEmail" placeholder="ايميل")
+        .formn
+            label( for="inputPassword") 
+            input( 
+                type="password" 
+                 id="inputPassword"
+                  placeholder="كلمة السر") 
+        .formn
+            button.btn.btns.btn-primary(type="submit")   تسجيل دخول
+        .formn(style="display: flex; margin: 0 auto")
+            p اذ كنت لا تملك حساب يمكنك
+            a(href="/auto/login" style="margin: 10px 0 0  0") تسجيل 
+
+//- no bootstrap

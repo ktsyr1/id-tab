@@ -1,8 +1,9 @@
-extends ../themes/header  
+extends ../layout/header 
+block content  
     div.container 
         .row.sh.b-r(style="margin: 20px  0 0 0 ;")
             .body-c
-                img(src="/imges/bg.png" class="card-img-top clip-1 b-r") 
+                img(src="/imges/bg.png" class="card-img-top   b-r") 
                 h1= center.name   
                 table.table.table-striped 
                     tbody
@@ -10,7 +11,7 @@ extends ../themes/header
                             td الهاتف
                             td 
                                 a.p2(href="tel:00961" + center.phone )
-                                    center.phone   
+                                    p= center.phone   
                         tr
                             td دعم الامم المتحدة 
                             td لا يوجد  
@@ -23,8 +24,14 @@ extends ../themes/header
             article.body-c  
                 p العنوان على الخريطة 
 
-                iframe.b-r(src="%= center.description % " width="100%" height="200px" style="border:0" allowfullscreen="allowfullscreen")
-                a(href="" class="btn btn-primary")  edit 
-                a(href="" class="btn btn-danger")  Delete 
-                p= center.date.toLocaleDateString('ar-EG')
-extends ../themes/footer 
+                iframe.b-r(src= center.description width="100%" height="200px" style="border:0" allowfullscreen="allowfullscreen")
+                a.btn.btn-primary(href= center.id + "/edit" )  edit 
+                a.btn.btn-danger(href= center.id + "/delete"  )  Delete 
+                div
+                    span    تاريخ الاظافة   
+                    span= center.created_at.toLocaleDateString('ar-EG') 
+                div
+                    span   تاريخ التعديل  
+                    span= center.date.toLocaleDateString('ar-EG') 
+
+//- code bootstrap

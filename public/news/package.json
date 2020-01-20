@@ -1,0 +1,14 @@
+{
+  "name": "pug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"pug index.pug -w -o build -P ",
+    "post":"pug  post.pug -w -o build -P"
+
+  },
+  "author": "ktsyr1",
+  "license": "ISC"
+}

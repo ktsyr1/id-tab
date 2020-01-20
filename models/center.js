@@ -6,8 +6,8 @@ const centerSchema = new Schema({
     address: { type: String, required: true },
     jurisdiction: { type: String, required: true },
     description: { type: String, required: true },
-    date: { type: Date, required: true },
-    created_at: { type: Date, required: true }
+    date: { type: Date, required: "" },
+    created_at: { type: Date, required: "" }
 });
 const Center = mongoose.model('Center', centerSchema, 'center');
 module.exports = Center;

@@ -11,9 +11,8 @@ app.use(bodyParser.json())
 app.use(express.static('node_modules'));
 app.use(express.static('public'));
 app.use(express.static('update'));
-// app.use(express.static('views'));
-const routeN = require('./route/route');
-app.use('/', routeN);
+app.use('/', require('./route/route'))
+app.use('/user', require('./route/user'))
 
 const port = process.env.PORT || 5050
 app.listen(port, () => console.log(`ren : ${port}`))

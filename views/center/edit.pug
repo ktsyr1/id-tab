@@ -1,0 +1,31 @@
+extends ../layout/header
+block content
+        .container  
+            .rows( style="text-align: right;")  
+                form( action="/update" method="post" )
+                    a.btn(href="/"+center.id) رجوع
+                    br
+                    h3 اظافة مركز 
+                    hr
+                    .form-row 
+                        .form-group.col-md-6 
+                            label(for="name") اسم المركز 
+                            input.form-control( type="text" name="name" id="name" value=center.name) 
+                        .form-group.col-md-6 
+                            label( for="phone") هاتف المركز 
+                            input.form-control( type="number"  name="phone" id="phone" value=center.phone) 
+                    .form-group 
+                        label( for="address") العنوان   
+                        input.form-control(type="text" name="address"  id="address" placeholder="1234 Main St" value=center.address)
+                    .form-group 
+                        label( for="jurisdiction") الاختصاص 
+                        input.form-control( type="text" name="jurisdiction" id="jurisdiction" placeholder="Apartment, studio, or floor" value=center.jurisdiction)
+                    .form-group  
+                        label( for="description") الخريطة 
+                        input( type="url" name="description" class="form-control" id="description" value=center.description)
+                    .form-row 
+                        p=center.created_at.toLocaleDateString('ar-EG') 
+                        .form-group.col-md-6 
+                            button.btn.btn-primary( type="submit" class="" style="margin: 10px;float: left;") اظافة  
+
+//- code bootstrap
