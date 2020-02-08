@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app",
-    "build":"npm i"
+    "build": "npm i"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "express-session": "^1.17.0",
     "express-validator": "^6.3.0",
     "mongoose": "^5.7.12",
+    "nodemon": "^2.0.2",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pug": "^2.0.4"
