@@ -22,8 +22,12 @@ const uri = "mongodb+srv://ktsyr1:idlibtp123@cluster0-6xfyu.mongodb.net/test?ret
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true  });
 client.connect(err => {
   const collection = client.db("id-Tab").collection("center");
+if (err){
+    console.log(err);
+}else{
+    console.log("fhyjghiuoj;piufydtshrhtdyfukgilho;jo;higufyjd");
 
-console.log("fhyjghiuoj;piufydtshrhtdyfukgilho;jo;higufyjd");
+}
 
   client.close();
 });
