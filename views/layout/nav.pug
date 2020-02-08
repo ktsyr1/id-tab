@@ -8,13 +8,16 @@ nav.navbar.navbar-expand-lg.navbar-light.bgf.fixed-top
                 img( src="/imges/logo.png" style="height:40px ;")  
         div.collapse.navbar-collapse( id="navbarNavDropdown" )
             u.navbar-nav.ml-auto 
-                a.nav-item(href="/") الرئيسية 
+                a.nav-item(href="/") app 
+                a.nav-item(href="/home") الرئيسية 
                 a.nav-item(href="/add") اضافة 
                 a.nav-item(href="/contact") اتصل بنا 
                 a.nav-item( href="/about")  عن الموقع 
                 br
-        u.navbar-nav.ml-auto(style="display: contents;")
-            a.nav-item(href="/user/login") تسجيل الدخول 
-            a.nav-item(href="/user/signup") تسجيل
-
+        li.nav-item.dropdown(style="display: grid;")
+            a.nav-link.dropdown-toggle.sb(href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ) user
+            .dropdown-menu( aria-labelledby="navbarDropdownMenuLink" style="padding-left: 10px;")
+                a.nav-item.dropdown-item(href="/user/login") تسجيل الدخول 
+                a.nav-item.dropdown-item(href="/user/signup") تسجيل 
 //- code bootstrap
+  

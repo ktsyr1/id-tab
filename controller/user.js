@@ -1,41 +1,63 @@
-const user = require("../models/user")
-const {check , validationResult} = require("express-validator")
+const user = require("../models/user");
+const { check, validationResult } = require("express-validator");
+// const 
 
-exports.getlogin = (req, res) => { 
+exports.getlogin = (req, res) => {
   res.render("user/login", { title: " دخول تسجيل" });
-
 };
+// exports.postlogin = 
 // ===========================================
-exports.getsignup = (req, res) => {   
+exports.getsignup = (req, res) => {
+  var merror = req.flash("error") 
   
-    res.render("user/signup", { title: "تسجيل  " });  
+  res.render("user/signup", { title: "تسجيل  ",  message : merror});
 };
-exports.postSignup = [[
-  check("email").not().isEmpty().withMessage("1111 "),
-  check("email").isEmail().withMessage("22222"),
-  check("password").not().isEmpty().withMessage("333"), 
-  check("password").isLength({min : 5}).withMessage("44444"),
-  check("rePassword").custom((value, { req }) => {
-    if (value !== req.body.password) {
-      throw new Error('Password confirmation does not match password');
-    } 
-    return true;
-  })
-  ],(req, res) => {  
-  const error = validationResult(req)
-  if(! error.isEmpty()){
-console.log(error);
+exports.postSignup = [
+  [
+    check("email")
+      .not()
+      .isEmpty()
+      .withMessage("لا يوجد ايميل "),
+    check("email")
+      .isEmail()
+      .withMessage("الايميل خطاء"),
+    check("password")
+      .not()
+      .isEmpty()
+      .withMessage("لا يوجد كلمر سر "),
+    check("password")
+      .isLength({ min: 5 })
+      .withMessage("كلمة السر اقل من 5 حروف")
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+    
+    if (!errors.isEmpty()) {
+      var vm = [];
+      for(var i =0 ; i <errors.errors.length;i++){
+        vm.push(errors.errors[i].msg)
+      } 
+      req.flash('error' ,vm)
+      
+      
+    }
+
+    let newUser = new user({
+      email: req.body.email,
+      password: req.body.password
+    });
+    user.findOne({ email: req.body.email }, (err, result) => {
+      if (!result) {
+        newUser.save((err, data) => {
+          if (err) {
+          } 
+        });
+      } else {
+        req.flash('error', `لقد تم استخدام هذا الايميل ${req.body.email} من قبل`);
+
+      }
+    });
+    res.redirect('signup') 
 
   }
-  
-  let newUser = new user({
-    email :  req.body.email,
-    password :  req.body.password
-  })
-  // console.log(req.body); 
-  console.log(12);
-  
-  res.redirect("/")
-  return
-}]
-// ===========================================
+]; 

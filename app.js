@@ -2,12 +2,20 @@ const express = require('express');
 const app = express();
 const db = require('./config/db')
 var bodyParser = require('body-parser')
-
+const cookieParser= require("cookie-parser")
+const session = require("express-session")
+const flash =require("connect-flash")
 app.set('view engine', 'pug')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
+app.use(cookieParser())  
+app.use(session({
+    secret:"center_@?!",
+    saveUninitialized:false,
+    resave:false
+}))
+app.use(flash())
 app.use(express.static('node_modules'));
 app.use(express.static('public'));
 app.use(express.static('update'));

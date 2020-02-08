@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.sh, .sb {
+  box-shadow: 1px 1px 10px #ddd;
+}
+
+.b-r15 {
+  border-radius: 15px;
+}
+
+.b-r, .sb {
+  border-radius: 10px;
+}
+
+.ta-c {
+  text-align: center;
+}
+
+.ta-r {
+  text-align: right;
+}
+
+.ta-l {
+  text-align: left;
+}
+
+.m-auto {
+  margin: 0 auto;
+}

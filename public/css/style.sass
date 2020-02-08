@@ -1,40 +1,16 @@
 @charset "UTF-8" 
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,800,200)
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons)  
+@import ktsyr1
 * 
     text-decoration-line: none
-    a 
-        text-decoration: none 
-        &:hover
-            text-decoration: none
-
-// ===== ===== start ktsyr1 ===== ===== 
-$color : #ddd 
-.sh 
-    box-shadow: 1px 1px 10px $color
-.b-r15
-    border-radius: 15px 
-.b-r
-    border-radius: 10px 
-.sb 
-    @extend .sh , .b-r
-.ta-c 
-    text-align: center
-.ta-r
-    text-align: right
-.ta-l
-    text-align: left
-.m-auto
-    margin: 0 auto
-// ===== ===== extand ktsyr1 ===== ===== 
-
+     
  
 h1 
     @extend .ta-c 
 
 body 
-    padding-top: 54px 
-    margin: 0 
+    padding-top: 54px  
     font-family: 'Tajawal', sans-serif 
     @extend .ta-c 
 
@@ -183,9 +159,9 @@ form
     @extend .sb
     padding: 10px 
 .login
-    @extend .sb , .b-r , .ta-r
+    @extend  .ta-r
     width: 350px 
-    margin: 80px auto
+    margin: 10px auto
     display: grid
     h4
        margin-right:  20px 
@@ -195,7 +171,7 @@ form
             margin: 10px 0 0 0
             color: #007bff
         input
-            @extend .sh , .b-r
+            @extend .sb
             padding: 5px 15px
             width: 100%
             border: 0

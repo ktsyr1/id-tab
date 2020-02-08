@@ -3,8 +3,13 @@ const router = express.Router();
 const c_center = require("../controller/center");
 const c_index = require("../controller/index"); 
 
+
+router.get("/", (req,res)=>{
+    res.redirect("/user/signup")
+})
 // home 
-router.get("/", c_index.index);
+
+router.get("/home", c_index.index);
 router.get("/about", c_index.getAbout);
 router.get("/contact", c_index.getContact);
 
