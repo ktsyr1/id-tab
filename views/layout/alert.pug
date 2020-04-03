@@ -1,0 +1,11 @@
+.alerts
+        //-  if errors
+        for error in errors 
+            .alert#error
+                p= error
+                button(onclick="alerte()") X
+            //- if successes
+        for success in successes
+            .alert#success
+                p= success
+                button(onclick="alerts()") X

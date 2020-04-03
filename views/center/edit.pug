@@ -1,10 +1,8 @@
-extends ../layout/header
+extends ../layout/layout
 block content
         .container  
             .rows( style="text-align: right;")  
-                form( action="/update" method="post" )
-                    a.btn(href="/"+center.id) رجوع
-                    br
+                form( action=`/${center.id}/edit` method="post" )
                     h3 اظافة مركز 
                     hr
                     .form-row 

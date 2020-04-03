@@ -1,23 +1,13 @@
- 
-nav.navbar.navbar-expand-lg.navbar-light.bgf.fixed-top 
-    .container 
-        button.navbar-toggler(  type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" )
-            .navbar-toggler-icon   
-        .bgf 
-            a.navbar-brand(href="/" )
-                img( src="/imges/logo.png" style="height:40px ;")  
-        div.collapse.navbar-collapse( id="navbarNavDropdown" )
-            u.navbar-nav.ml-auto 
-                a.nav-item(href="/") app 
-                a.nav-item(href="/home") الرئيسية 
-                a.nav-item(href="/add") اضافة 
-                a.nav-item(href="/contact") اتصل بنا 
-                a.nav-item( href="/about")  عن الموقع 
-                br
-        li.nav-item.dropdown(style="display: grid;")
-            a.nav-link.dropdown-toggle.sb(href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ) user
-            .dropdown-menu( aria-labelledby="navbarDropdownMenuLink" style="padding-left: 10px;")
-                a.nav-item.dropdown-item(href="/user/login") تسجيل الدخول 
-                a.nav-item.dropdown-item(href="/user/signup") تسجيل 
-//- code bootstrap
-  
+nav 
+    .logo 
+        button( onclick="openNav()") &#9776; 
+        a(href="/") Ktsyr1 Design
+    .item#item
+        .ul
+            a.li(href="/") home  
+            a.li(href="/contact")  contact
+            a.li(href="/about")  about
+            a.li(href="/add")  add
+            a.li.log(href="/users/signup") signup 
+            a.li(href="/users/login") login 
+        button.closebtn(onclick="closeNav()") 

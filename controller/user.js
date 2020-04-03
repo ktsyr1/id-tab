@@ -49,15 +49,17 @@ exports.postSignup = [
     user.findOne({ email: req.body.email }, (err, result) => {
       if (!result) {
         newUser.save((err, data) => {
-          if (err) {
-          } 
+          if (err){ 
+            req.flash('error' , "هناك خطاء الرجاء اعادة المحاولة") 
+            res.redirect('/home') 
+          }
         });
       } else {
         req.flash('error', `لقد تم استخدام هذا الايميل ${req.body.email} من قبل`);
+        res.redirect('/users/signup') 
 
       }
     });
-    res.redirect('signup') 
 
   }
 ]; 
