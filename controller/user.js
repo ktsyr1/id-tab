@@ -1,16 +1,18 @@
-const user = require("../models/user");
+const User = require("../models/user");
 const { check, validationResult } = require("express-validator");
 // const 
+const passport = require('passport')
 
 exports.getlogin = (req, res) => {
-  res.render("user/login", { title: " دخول تسجيل" });
+  if (req.user) res.redirect('/')
+  else  res.render("user/login", { title: " دخول تسجيل" });
 };
 // exports.postlogin = 
 // ===========================================
 exports.getsignup = (req, res) => {
   var merror = req.flash("error") 
-  
-  res.render("user/signup", { title: "تسجيل  ",  message : merror});
+  if (req.user) res.redirect('/')
+  else res.render("user/signup", { title: "تسجيل ", message : merror});
 };
 exports.postSignup = [
   [
@@ -42,24 +44,36 @@ exports.postSignup = [
       
     }
 
-    let newUser = new user({
+    let newUser = new User({
       email: req.body.email,
-      password: req.body.password
+      password: new User().hashPassword(req.body.password)
     });
-    user.findOne({ email: req.body.email }, (err, result) => {
+    console.log(req.body);
+    
+    User.findOne({ email: req.body.email }, (err, result) => {
+    // console.log(result);
+    console.log(newUser.password);
+
       if (!result) {
         newUser.save((err, data) => {
-          if (err){ 
-            req.flash('error' , "هناك خطاء الرجاء اعادة المحاولة") 
-            res.redirect('/home') 
-          }
+          if (err) req.flash('error' , "هناك خطاء الرجاء اعادة المحاولة") 
+           else res.redirect('/') 
         });
-      } else {
+      }
+       else {
         req.flash('error', `لقد تم استخدام هذا الايميل ${req.body.email} من قبل`);
         res.redirect('/users/signup') 
 
-      }
-    });
-
+      } 
+    }); 
   }
 ]; 
+
+exports.getsignup = (req,res,next) =>{
+  passport.authenticate('local', {
+      successRedirect: 'dashboard',
+      failureRedirect: 'login',
+      failureFlash: true
+  })(req,res,next)
+}
+ 

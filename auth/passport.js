@@ -1,7 +1,7 @@
 const passport = require('passport')
 const localStragey = require('passport-local').Strategy
-const User = require('../models/user')
-const bcrypt = require('bcrypt-nodejs')
+const bcrypt = require('bcryptjs')
+const User = require('./user.models')
 
 passport.use(new localStragey({
     usernameField: "email",

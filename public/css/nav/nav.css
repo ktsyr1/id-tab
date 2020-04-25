@@ -18,6 +18,10 @@ nav {
   box-shadow: 1px 1px 10px #ddd;
 }
 
+nav:hover {
+  box-shadow: 0px 33px 50px #ddd;
+}
+
 nav a {
   color: #222;
 }
@@ -63,7 +67,7 @@ nav .item .ul .li:hover {
   border-bottom-width: .01rem;
   border-color: #dfe1e5;
   text-decoration: none;
-  box-shadow: 1px 1px 10px #ddd;
+  box-shadow: 0px 33px 50px #ddd;
 }
 
 nav .item .ul .log {

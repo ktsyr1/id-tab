@@ -29,3 +29,11 @@ function alerts() {
 function alerte() {
   document.getElementById(`error`).style.display = "none";
 }
+function view(id , value ){
+  var app =  document.getElementById(id)
+  if (app.style.display==value){
+    app.style.display = "none"; 
+  }else{
+    app.style.display = value; 
+  } 
+} 

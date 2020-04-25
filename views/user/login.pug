@@ -1,6 +1,6 @@
 extends ../layout/layout 
 block content 
-    form.login(action="", method="post") 
+    form.login(action="login", method="post") 
         h4 تسجيل دخول
         .formn
             label( for="inputEmail")
@@ -15,6 +15,6 @@ block content
             button.btn.btns.btn-primary(type="submit")   تسجيل دخول
         .formn(style="display: flex; margin: 0 auto")
             p اذ كنت لا تملك حساب يمكنك
-            a(href="/user/signup" style="margin: 10px 0 0  0") تسجيل 
+            a(href="/users/signup" style="margin: 10px 0 0  0") تسجيل 
 
 //- no bootstrap

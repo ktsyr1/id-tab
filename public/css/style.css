@@ -1,10 +1,22 @@
+* {
+  text-decoration-line: none;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
 }
 
 .sh, .sb, nav a.nav-item, form, .login .formn input, .btns, .btn1, .bor3:hover, .bor1:hover, .p-box, nav, .icard {
-  box-shadow: 1px 1px 10px #ddd;
+  box-shadow: 1px 1px 5px #ddd;
+}
+
+.sh:hover, .sb:hover, nav a.nav-item:hover, form:hover, .login .formn input:hover, .btns:hover, .btn1:hover, .bor3:hover, .bor1:hover, .p-box:hover, nav:hover, .icard:hover {
+  box-shadow: 0px 33px 50px #ddd;
 }
 
 .b-r15, .icard {
@@ -29,14 +41,6 @@ body {
 
 .m-auto {
   margin: 0 auto;
-}
-
-* {
-  text-decoration-line: none;
-}
-
-body {
-  font-family: 'Tajawal', sans-serif;
 }
 
 p {
