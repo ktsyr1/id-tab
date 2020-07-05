@@ -191,8 +191,8 @@ nav a.nav-item {
   margin: 5px 5px 0 5px;
 }
 
-.icard {
-  display: grid;
+.icard { 
+      display: inline-block; 
   margin: 10px;
 }
 
